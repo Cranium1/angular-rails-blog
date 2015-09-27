@@ -1,0 +1,14 @@
+<div class="ui hidden divider"></div>
+<div class="ui segment">
+	<h1 class="ui header">
+		{{ post.title }}
+	</h1>
+	<p>Posted on {{ post.date }} by {{ post.username }}</p>
+	<p>{{ post.postdesc }}</p>
+	<div class="ui divider"></div>
+	<div class="" markdown contenteditable ng-model="text"></div>
+</div>
+<div class="ui segment">
+	<div ng-bind-html="text | html">
+	</div>
+</div>

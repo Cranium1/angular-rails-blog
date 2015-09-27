@@ -1,0 +1,76 @@
+<div class="ui container">
+	<div class="ui hidden divider"></div>
+
+	<h4 class="ui horizontal divider header">
+		<i class="file text outline icon"></i>
+		New Post
+	</h4>
+
+	<form>
+		<div class="ui segment">
+			<div class="ui form" style="overflow: auto">
+				<div class="field">
+					<label>Title
+						<span style="color: red" ng-repeat="error in errors['title']">
+							{{ error }}
+						</span>
+					</label>
+					<input type="text" name="title" ng-model="post.title">
+				</div>
+
+				<div class="field">
+					<label>Stub
+						<span style="color: red" ng-repeat="error in errors['stub']">
+							{{ error }}
+						</span>
+					</label>
+					<input type="text" name="stub" ng-model="post.stub">
+				</div>
+
+				<div class="field">
+					<label>Description
+						<span style="color: red" ng-repeat="error in errors['postdesc']">
+							{{ error }}
+						</span>
+					</label>
+					<textarea rows="2" name="postdesc" ng-model="post.postdesc"></textarea>
+				</div>
+
+				<div class="field">
+					<label>Post
+						<span style="color: red" ng-repeat="error in errors['posthtml']">
+							{{ error }}
+						</span>
+					</label>
+					<textarea ng-model="post.postmd" name="postmd"></textarea>
+				</div>
+
+				<button ng-class="{loading: loading}" type="submit" class="ui right floated blue button" ng-click="submitForm(true)">
+					Publish
+				</button>
+				<button ng-class="{loading: loading}" class="ui right floated secondary button" ng-click="submitForm(false)">
+					Save Draft
+				</button>
+				<button ng-class="{loading: loading}" class="ui right floated negative button">
+					Cancel
+				</button>
+			</div>
+		</div>
+
+		<div ng-show="show">
+			<h4 class="ui horizontal divider header">
+				<i class="file text outline icon"></i>
+				Preview
+			</h4>
+
+			<div class="ui segment">
+				<h1 class="ui header">
+					{{ post.title }}
+				</h1>
+				<p>{{ post.postdesc }}</p>
+				<div class="ui divider"></div>
+				<div ng-bind-html="post.posthtml | html"></div>
+			</div>
+		</div>
+	</form>
+</div>
