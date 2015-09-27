@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-RailsBlog::Application.config.secret_token = ENV['SECRET_TOKEN']
+RailsBlog::Application.config.secret_token = "notneeded"
