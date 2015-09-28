@@ -2,10 +2,10 @@ var BlogApp = angular.module('BlogApp', ['ngRoute', 'yaru22.angular-timeago']);
 
 BlogApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
-	.when('/', {
-		templateUrl : 'routes/main.html',
-		controller  : 'ListController',
-	})
+        .when('/', {
+                templateUrl : 'routes/main.html',
+                controller  : 'ListController',
+        })
 	.when('/posts/create', {
 		templateUrl : 'routes/create.html',
 		controller  : 'CreateController'
@@ -17,7 +17,7 @@ BlogApp.config(function($routeProvider, $locationProvider) {
 	.when('/posts/:poststub/edit', {
 		templateUrl : 'routes/edit.html',
 		controller  : 'EditController'
-	});
+        });
 
 	$locationProvider.html5Mode(true);
 });
