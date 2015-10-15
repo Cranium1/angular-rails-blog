@@ -1,17 +1,3 @@
-<div id="fullscreenheader">
-	<h1 id="title" class="ui centered inverted header">
-		Carson Crane
-		<div id="subtitle" class="sub header" style="font-size: .5em">Web Developer</div>
-		<div id="subtitle" class="sub header" style="font-size: .35em">New York</div>
-	</h1>
-</div>
-
-<div id="carousel">
-	<video autoplay loop>
-		<source src="https://ia801605.us.archive.org/0/items/NycTrafficTimeLapse/NycTrafficH264.mp4" type="video/mp4">
-	</video>
-</div>
-
 <div class="ui container">
 	<h4 class="ui horizontal divider">
 		<i class="newspaper icon"></i>
@@ -26,7 +12,7 @@
 							{{ item.title }}
 						</a>
 					</h1>
-					<p>Posted <time-ago from-time='{{ item.created_at }}'></time-ago>.</p>
+					<p>Posted {{ item.created_at | timeAgo }}.</p>
 				</div>
 			</div>
 		</div>

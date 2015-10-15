@@ -4,7 +4,7 @@
 		<h1 class="ui header">
 			{{ data.title }}
 		</h1>
-		<p>Posted <time-ago from-time='{{ data.created_at }}'></time-ago>.</p>
+		<p>Posted {{ data.created_at | timeAgo }}.</p>
 		<div class="ui divider"></div>
 		<div ng-bind-html="data.html | html"></div>
 	</div>
