@@ -23,51 +23,16 @@ BlogApp.config(function($routeProvider, $locationProvider) {
 });
 
 BlogApp.controller('MenuController', function($scope, $location) {
-	$scope.menuClass = function () {
-		if ($location.path() === "/") {
-			return ['fixed', 'hide'];
-		} else {
-			return '';
-		}
-	}
 });
 
 BlogApp.controller('ListController', function($scope, $http) {
-
 	$http.get('/json/posts.json')
 	.then(function(res){
 		$scope.data = res.data;
 	});
-
-	var scrollHandler = function () {
-		slider();
-	}
-
-	function slider() {
-		if (document.body.scrollTop > 0)
-			$('#menu').stop().fadeIn(300)
-		else
-			$('#menu').stop().fadeOut(300)
-	}
-
-	$scope.$on('$viewContentLoaded', function(){
-		slider();
-		$(window).scroll(scrollHandler);
-  	});
-
-	$scope.$on("$destroy", function(){
-		$(window).unbind("scroll", scrollHandler);
-    });
-
 });
 
 BlogApp.controller('PostController', function($scope, $http, $routeParams) {
-
-	$scope.$on('$viewContentLoaded', function(){
-		$('#menu').css('display','block');
-		$('#menu').animate({opacity: "1"});
-  	});
-
 	$http.get('/json/posts/'+$routeParams.poststub)
 	.then(function(res){
 		$scope.data = res.data;

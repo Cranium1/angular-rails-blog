@@ -12,13 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 	<script>
 		$( document ).ready(function() {
-			$('.ui.dropdown')
-			.dropdown()
-			;
+			$('.ui.dropdown').dropdown();
 		});
 	</script>
 
@@ -34,10 +32,10 @@
 
 <body>
 	<div ng-controller="MenuController">
-	<div id="menu" ng-class="menuClass()" class="ui borderless menu">
+	<div id="menu" class="ui borderless menu">
 			<div class="ui container">
 				<div class="left menu">
-					<a class="item">
+					<a class="item" href="/">
 						<h1 class="ui centered header">
 							Carson Crane
 							<div class="sub header">
@@ -47,11 +45,11 @@
 					</a>
 				</div>
 				<div class="right menu">
-					<a class="item">
+					<a class="item" href="/">
 						<i class="large home icon"></i>
 						Home
 					</a>
-					<a class="item">
+					<a class="item" href="/">
 						<i class="newspaper icon"></i>
 						Blog
 					</a>
@@ -60,26 +58,26 @@
 						About
 						<i class="dropdown icon"></i>
 						<div class="menu">
-							<div class="item">
+							<a class="item" href="mailto:carson@carson.tech">
 								<i class="mail icon"></i>
 								Email
-							</div>
-							<div class="item">
+							</a>
+							<a class="item" href="https://github.com/Cranium1">
 								<i class="github icon"></i>
 								Github
-							</div>
-							<div class="item">
+							</a>
+							<a class="item" href="https://www.linkedin.com/in/carsoncrane">
 								<i class="linkedin icon"></i>
 								Linkedin
-							</div>
-							<div class="item">
+							</a>
+							<a class="item" href="https://stackoverflow.com/users/4770578/carson-crane">
 								<i class="stack overflow icon"></i>
 								Stackoverflow
-							</div>
-							<div class="item">
+							</a>
+							<a class="item" href="https://twitter.com/crnmdev">
 								<i class="twitter icon"></i>
 								Twitter
-							</div>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -94,18 +92,20 @@
 	<div class="ui container">
 		<div class="ui menu">
 			<div class="left menu">
-				<a class="item">
+				<a class="item" href="">
 					<p>Copyright &copy; 2015 Carson Crane</p>
 				</a>
 			</div>
-<!-- 			<div class="right menu">
+			<!--
+ 			<div class="right menu">
 				<a class="icon item">
 					<i class="large setting icon"></i>
 				</a>
 				<a class="icon item">
 					<i class="large sign in icon"></i>
 				</a>
-			</div> -->
+			</div>
+			-->
 		</div>
 	</div>
 
