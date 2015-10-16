@@ -1,20 +1,26 @@
-<div class="ui container">
-	<h4 class="ui horizontal divider">
-		<i class="newspaper icon"></i>
-		Blog Posts
-	</h4>
+	<div class="ui hidden divider"></div>
 	<div class="ui grid">
 		<div ng-repeat="item in data" class="row">
-			<div class="column">
-				<div class="ui segment">
-					<h1 class="ui header">
-						<a href="/posts/{{ item.id }}">
-							{{ item.title }}
-						</a>
-					</h1>
-					<p>Posted {{ item.created_at | timeAgo }}.</p>
+			<div class="centered column">
+				<div class="ui blue text container segment">
+					<div class="postheader">
+						<h1 class="ui header">
+							<a href="/posts/{{ item.id }}">
+								{{ item.title }}
+							</a>
+						</h1>
+						<div class="ui relaxed divided horizontal list">
+							<div class="item">
+								<i class="calendar icon"></i>
+								{{ item.created_at | timeAgo }}
+							</div>
+							<div class="item">
+								<i class="line chart icon"></i>
+								12341234 views
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>

@@ -1,6 +1,8 @@
 body {
 	background-image: url("/img/background.png");
 	background-repeat: repeat;
+    background-attachment: fixed;
+	height: 100%;
 }
 
 #fullscreenheader {
@@ -8,6 +10,7 @@ body {
 }
 
 #menu {
+	text-align: center;
 }
 
 #title {
@@ -22,19 +25,6 @@ body {
 	font-size: .5em;
 }
 
-#carousel {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-#carousel > * {
-	object-fit: cover;
-	margin: 0 auto;
-}
-
-#carousel > video {
-	background-size: cover;
-	width: 100%;
-	min-height: 100%;
+.postheader {
+	text-align: center;
 }

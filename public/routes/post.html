@@ -1,11 +1,15 @@
-<div class="ui container">
 	<div class="ui hidden divider"></div>
-	<div class="ui segment">
-		<h1 class="ui header">
-			{{ data.title }}
-		</h1>
-		<p>Posted {{ data.created_at | timeAgo }}.</p>
+	<div class="ui blue text container segment">
+		<div class="postheader">
+			<h1 class="ui header">
+				<a href="/posts/{{ data.id }}">
+					{{ data.title }}
+				</a>
+			</h1>
+			<p>
+				{{ data.created_at | timeAgo }}
+			</p>
+		</div>
 		<div class="ui divider"></div>
-		<div ng-bind-html="data.html | html"></div>
+		<div ng-bind-html="data.html | html" class="markdown-body"></div>
 	</div>
-</div>
