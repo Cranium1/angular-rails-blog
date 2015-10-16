@@ -1,22 +1,22 @@
 	<div class="ui hidden divider"></div>
 	<div class="ui grid">
-		<div ng-repeat="item in data" class="row">
+		<div ng-repeat="post in data" class="row">
 			<div class="centered column">
 				<div class="ui blue text container segment">
 					<div class="postheader">
 						<h1 class="ui header">
-							<a href="/posts/{{ item.id }}">
-								{{ item.title }}
+							<a href="/posts/{{ post.id }}">
+								{{ post.title }}
 							</a>
 						</h1>
 						<div class="ui relaxed divided horizontal list">
 							<div class="item">
 								<i class="calendar icon"></i>
-								{{ item.created_at | timeAgo }}
+								{{ post.created_at | timeAgo }}
 							</div>
 							<div class="item">
 								<i class="line chart icon"></i>
-								12341234 views
+								{{ post.views }} views
 							</div>
 						</div>
 					</div>

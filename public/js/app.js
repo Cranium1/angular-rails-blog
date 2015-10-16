@@ -35,7 +35,7 @@ BlogApp.controller('ListController', function($scope, $http) {
 BlogApp.controller('PostController', function($scope, $http, $routeParams) {
 	$http.get('/json/posts/'+$routeParams.poststub)
 	.then(function(res){
-		$scope.data = res.data;
+		$scope.post = res.data;
 	});
 });
 
