@@ -6,12 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require_relative "../lib/parsewordpress.rb"
+# require_relative "../lib/parsewordpress.rb"
 
 user = User.find_or_create_by(name: 'Cranium') do | user |
   user.password = 'Johansson'
 end
 
-posts = WordpressParser.parse_file("oldsite.html").parse_articles
+# posts = WordpressParser.parse_file("oldsite.html").parse_articles
 
-user.posts.create(posts)
+post = {title: "abcdefg"}
+
+10.times do
+	user.posts.create(post)
+end

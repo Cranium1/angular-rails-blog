@@ -1,12 +1,37 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
 
-  # GET /posts
-  # GET /posts.json
-  def index
-    @posts = Post.all
+  # # GET /posts
+  # # GET /posts.json
+  # def index
+  #   @posts = Post.page
 
-    render json: @posts
+  #   render json: @posts, :except => [:html, :user_id, :public, :markdown]
+  # end
+
+  # GET /page/:page
+  # GET /page/:page.json
+  def page
+    page = params[:page].to_i
+
+    if Post.total_pages < page || page < 0
+      render nothing: true, status: 404
+    else
+      @posts = Post.page(page)
+
+      data = { 
+        :posts => @posts,
+        :pagination => {
+          :page => page,
+          :total_pages => Post.total_pages
+        }
+      }
+
+      data[:pagination][:next_page] = page+1 if page < Post.total_pages
+      data[:pagination][:prev_page] = page-1 if page > 1
+
+      render json: data, :except => [:html, :user_id, :public, :markdown]
+    end
   end
 
   # GET /posts/1

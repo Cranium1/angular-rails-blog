@@ -1,0 +1,32 @@
+	<div class="ui hidden divider"></div>
+	<div class="ui text container">
+		<div ng-repeat="post in data.posts" class="">
+			<div class="ui blue segment">
+				<div class="postheader">
+					<h1 class="ui header">
+						<a href="/posts/{{ post.id }}">
+							{{ post.title }}
+						</a>
+					</h1>
+					<div class="ui relaxed divided horizontal list">
+						<div class="item">
+							<i class="calendar icon"></i>
+							{{ post.created_at | timeAgo }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui hidden divider"></div>
+		</div>
+
+		<div class="blue ui bottom attached buttons">
+			<a class="ui button" ng-class="prev_class" href="{{ prev_page }}">
+				<i class="arrow left icon"></i>
+				Previous Page
+			</a>
+			<a class="ui button" ng-class="next_class" href="{{ next_page }}">
+				Next Page
+				<i class="arrow right icon"></i>
+			</a>
+		</div>
+	</div>

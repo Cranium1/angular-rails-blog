@@ -2,10 +2,14 @@ var BlogApp = angular.module('BlogApp', ['ngRoute', 'yaru22.angular-timeago']);
 
 BlogApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
-        .when('/', {
-                templateUrl : 'routes/main.html',
-                controller  : 'ListController',
-        })
+    .when('/', {
+            templateUrl : 'routes/list.html',
+            controller  : 'ListController',
+    })
+    .when('/page/:page', {
+            templateUrl : 'routes/list.html',
+            controller  : 'ListController',
+    })
 	.when('/posts/create', {
 		templateUrl : 'routes/create.html',
 		controller  : 'CreateController'
@@ -25,10 +29,24 @@ BlogApp.config(function($routeProvider, $locationProvider) {
 BlogApp.controller('MenuController', function($scope, $location) {
 });
 
-BlogApp.controller('ListController', function($scope, $http) {
-	$http.get('/json/posts.json')
+BlogApp.controller('ListController', function($scope, $http, $routeParams) {
+	if (!$routeParams.page) {
+		$routeParams.page = 1;
+	}
+	$http.get('/json/page/'+$routeParams.page)
 	.then(function(res){
 		$scope.data = res.data;
+		if (res.data.pagination.next_page) {
+			$scope.next_page = "/page/"+res.data.pagination.next_page;
+		} else {
+			$scope.next_class = "disabled";
+		}
+
+		if (res.data.pagination.prev_page) {
+			$scope.prev_page = "/page/"+res.data.pagination.prev_page;
+		} else {
+			$scope.prev_class = "disabled";
+		}
 	});
 });
 
