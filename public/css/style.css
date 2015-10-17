@@ -1,3 +1,7 @@
+html, body {
+	height: 100%
+}
+
 body {
 	background-image: url("/img/p6.png");
 	background-repeat: repeat;
@@ -5,8 +9,16 @@ body {
 	height: 100%;
 }
 
-#fullscreenheader {
-	position:absolute; width: 100%; height: 100%; display:flex; align-items: center; justify-content: space-between; font-size: 4em
+.wrap {
+  min-height: 100%;
+  margin-bottom: -61px;
+}
+.wrap:after {
+  content: "";
+  display: block;
+}
+.footer, .wrap:after {
+  height: 47px; 
 }
 
 .carson_menu {
